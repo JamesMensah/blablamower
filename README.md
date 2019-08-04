@@ -41,10 +41,16 @@ result
 python Main.py
 ```
 
+## How to run the tests
+* Only tested with python 3.7
+```
+python3 -m unittest RunTests.py
+```
+
 ## Compatibilities
 
-* Code written with python 3.7
-* Tested with python 2.7.0
+* Code written and tested with python 3.7
+* Main.py tested with python 2.7.0
 
 ## TODO
 
