@@ -23,16 +23,17 @@ When a mower has finished, it gives the final position and orientation.
 
 ## Example
 
-input file
-55
-12N
-LFLFLFLFF
-33E
-FFRFFRFRRF
+input file  
 
-result
-13N
-51E
+55  
+12N  
+LFLFLFLFF  
+33E  
+FFRFFRFRRF  
+
+result  
+13N  
+51E  
 
 ## How to run the program
 
