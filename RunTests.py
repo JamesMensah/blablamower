@@ -38,3 +38,7 @@ class Tests(TestCase):
     def test_mower_starting_out_of_bound(self):
         file_path = 'tests/mower_starting_out_of_bound_test.txt'
         self.assertRaises(MowerInitException, parse_and_execute_inputs, file_path)
+
+    def test_wrong_orientation(self):
+        file_path = 'tests/wrong_orientation_test.txt'
+        self.assertRaises(WrongFormatInputFileException, parse_and_execute_inputs, file_path)

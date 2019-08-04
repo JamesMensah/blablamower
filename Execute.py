@@ -1,8 +1,9 @@
-import logging, sys
+import logging
+import sys
 
+from Exceptions import EmptyInputFileException, WrongFormatInputFileException, MowerInitException
 from Lawn import Lawn
 from Mower import Mower
-from Exceptions import EmptyInputFileException, WrongFormatInputFileException, MowerInitException
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
@@ -17,6 +18,7 @@ def parse_and_execute_inputs(file_path):
             if len(line.strip()) == 0:
                 raise EmptyInputFileException
             if len(line) < 3:
+                logging.error("The input file requires at least 3 lines")
                 raise WrongFormatInputFileException
             # Init a counter of the lines
             cnt = 1

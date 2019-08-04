@@ -23,8 +23,7 @@ When a mower has finished, it gives the final position and orientation.
 
 ## Example
 
-input file  
-
+input file
 55  
 12N  
 LFLFLFLFF  
@@ -41,7 +40,6 @@ result
 
 ## TODO
 
-* More explicit format exceptions
 * Find more breaking tests
 * Graphic UI
 * Optimize moving algo

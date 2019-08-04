@@ -6,4 +6,4 @@ class Lawn(object):
         self.mowers = mowers
 
     def __str__(self):
-        return f'The lawnmowers are {self.mowers}'
+        return "The lawnmowers locations are now " + str(self.mowers)

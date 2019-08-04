@@ -1,3 +1,8 @@
+import logging
+
+from Exceptions import WrongFormatInputFileException
+
+
 class Mower(object):
 
     def __init__(self, x=int, y=int, orientation=str):
@@ -6,7 +11,7 @@ class Mower(object):
         self.orientation = orientation
 
     def __str__(self):
-        return f'Mower({self.x};{self.y};{self.orientation})'
+        return "Mower(" + str(self.x) + ";" + str(self.y) + ";" + self.orientation + ")"
 
     def __repr__(self):
         return self.__str__()
@@ -31,7 +36,8 @@ class Mower(object):
             elif self.orientation == "W":
                 self.x = self.x - 1
             else:
-                print("Unknown instruction")
+                logging.error("This orientation is not valid")
+                raise WrongFormatInputFileException
         elif instruction == "L":
             if self.orientation == "N":
                 self.orientation = "W"
@@ -42,7 +48,8 @@ class Mower(object):
             elif self.orientation == "E":
                 self.orientation = "N"
             else:
-                print("Unknown instruction")
+                logging.error("This orientation is not valid")
+                raise WrongFormatInputFileException
         elif instruction == "R":
             if self.orientation == "N":
                 self.orientation = "E"
@@ -53,6 +60,8 @@ class Mower(object):
             elif self.orientation == "E":
                 self.orientation = "S"
             else:
-                print("Unknown instruction")
+                logging.error("This orientation is not valid")
+                raise WrongFormatInputFileException
         else:
-            print("Unknown instruction")
+            logging.error("This instruction is not valid")
+            raise WrongFormatInputFileException
