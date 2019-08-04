@@ -19,7 +19,7 @@ The rest of the file can control multiple mowers deployed on the lawn. Each mowe
 The first line gives mower's starting position and orientation as "X Y O". X and Y being the position and O the orientation.
 The second line gives instructions to the mower to go throughout the lawn. Instructions are characters without spaces.
 Each mower moves sequentially, meaning that the second mower moves only when the first has fully performed its series of instructions.
-When a mower has finished, it gives the final position and orientation.
+When a mower has finished, it gives the final position and orientation.  
 
 ## Example
 
@@ -36,7 +36,12 @@ result
 
 ## How to run the program
 
-* TBA
+* Make sure input.txt is in the same folder and execute: python Main.py
+
+## Compatibilities
+
+* Code written with python 3.7
+* Tested with python 2.7.0
 
 ## TODO
 
