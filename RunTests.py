@@ -42,3 +42,11 @@ class Tests(TestCase):
     def test_wrong_orientation(self):
         file_path = 'tests/wrong_orientation_test.txt'
         self.assertRaises(WrongFormatInputFileException, parse_and_execute_inputs, file_path)
+
+    def test_lawn_not_square(self):
+        file_path = 'tests/lawn_not_square_test.txt'
+        self.assertRaises(WrongFormatInputFileException, parse_and_execute_inputs, file_path)
+
+    def test_wrong_lawn(self):
+        file_path = 'tests/wrong_lawn_test.txt'
+        self.assertRaises(WrongFormatInputFileException, parse_and_execute_inputs, file_path)

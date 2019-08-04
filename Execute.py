@@ -25,17 +25,25 @@ def parse_and_execute_inputs(file_path):
             # Let's parse each lines
             while line:
                 logging.debug("Line {}: {}".format(cnt, line.strip()))
+                first_char = line.strip()[0]
+                second_char = line.strip()[1]
                 # If we're reading the first line, we will create our square lawn
                 if cnt == 1:
+                    if first_char.isalpha():
+                        logging.error("The lawn cannot be defined with letters")
+                        raise WrongFormatInputFileException
+                    if first_char != second_char:
+                        logging.error("The lawn is not a square")
+                        raise WrongFormatInputFileException
                     my_lawn = Lawn(int(line.strip()[0]), int(line.strip()[1]), [])
                     logging.debug("Creating the lawn: %s", my_lawn)
                 # If not first line, let's see if we're dealing with a mower or some instructions
                 else:
                     # If the first char of the line is a digit AND the line number is an even number
                     # then the line represents a mower
-                    if line.strip()[0].isdigit() and cnt % 2 == 0:
-                        mower_x = int(line.strip()[0])
-                        mower_y = int(line.strip()[1])
+                    if first_char.isdigit() and cnt % 2 == 0:
+                        mower_x = int(first_char)
+                        mower_y = int(second_char)
                         mower_orientation = line.strip()[2]
                         # We check that the mower is not already out of bound of the lawn
                         if mower_x > my_lawn.upper_right_x or mower_y > my_lawn.upper_right_y:
@@ -45,7 +53,7 @@ def parse_and_execute_inputs(file_path):
                         my_lawn.mowers.append(mower)
                         logging.debug("State of the lawn: %s", my_lawn)
                     # If the first char of the line is a letter, then the line represents the instructions
-                    elif line.strip()[0].isalpha():
+                    elif first_char.isalpha():
                         logging.debug("Executing mower instructions")
                         for c in line.strip():
                             # If the instruction is to go forward, We check if the next move is not ouf of bound
