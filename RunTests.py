@@ -50,3 +50,11 @@ class Tests(TestCase):
     def test_wrong_lawn(self):
         file_path = 'tests/wrong_lawn_test.txt'
         self.assertRaises(WrongFormatInputFileException, parse_and_execute_inputs, file_path)
+
+    def test_mower_starting_with_letter(self):
+        file_path = 'tests/wrong_mower_starting_letter_test.txt'
+        self.assertRaises(WrongFormatInputFileException, parse_and_execute_inputs, file_path)
+
+    def test_empty_line(self):
+        file_path = 'tests/empty_line_test.txt'
+        self.assertRaises(WrongFormatInputFileException, parse_and_execute_inputs, file_path)

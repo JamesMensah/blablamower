@@ -25,6 +25,10 @@ def parse_and_execute_inputs(file_path):
             # Let's parse each lines
             while line:
                 logging.debug("Line {}: {}".format(cnt, line.strip()))
+                # Check that the line is not empty
+                if len(line.strip()) == 0:
+                    logging.error("A line cannot be empty")
+                    raise WrongFormatInputFileException
                 first_char = line.strip()[0]
                 second_char = line.strip()[1]
                 # If we're reading the first line, we will create our square lawn
@@ -41,7 +45,10 @@ def parse_and_execute_inputs(file_path):
                 else:
                     # If the first char of the line is a digit AND the line number is an even number
                     # then the line represents a mower
-                    if first_char.isdigit() and cnt % 2 == 0:
+                    if first_char.isdigit():
+                        if cnt % 2 == 1:  # If the line is odd, then it's a wrong format instruction line
+                            logging.error("The instruction line has to start with a letter")
+                            raise WrongFormatInputFileException
                         mower_x = int(first_char)
                         mower_y = int(second_char)
                         mower_orientation = line.strip()[2]
@@ -52,8 +59,12 @@ def parse_and_execute_inputs(file_path):
                         logging.debug("Found a new mower: %s", mower)
                         my_lawn.mowers.append(mower)
                         logging.debug("State of the lawn: %s", my_lawn)
-                    # If the first char of the line is a letter, then the line represents the instructions
+                    # If the first char of the line is a letter AND line number is an odd number
+                    # then the line represents the instructions
                     elif first_char.isalpha():
+                        if cnt % 2 == 0:  # If the line is even, then it's a wrong format mower line
+                            logging.error("The mower line has to start with a digit")
+                            raise WrongFormatInputFileException
                         logging.debug("Executing mower instructions")
                         for c in line.strip():
                             # If the instruction is to go forward, We check if the next move is not ouf of bound
