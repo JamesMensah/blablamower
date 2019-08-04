@@ -36,6 +36,7 @@ result
 
 ## How to run the program
 
+* Make sure you have at least python 2.7 installed (python 3.7 recommended)
 * Make sure input.txt is in the same folder and execute:
 ```
 python Main.py
