@@ -22,10 +22,17 @@ Each mower moves sequentially, meaning that the second mower moves only when the
 When a mower has finished, it gives the final position and orientation.
 
 ## Example
+
 input file
 55
-12 N LFLFLFLFF 33 E FFRFFRFRRF result
-13 N 51 E
+12N
+LFLFLFLFF
+33E
+FFRFFRFRRF
+
+result
+13N
+51E
 
 ## How to run the program
 
