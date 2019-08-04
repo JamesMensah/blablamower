@@ -39,7 +39,7 @@ def parse_and_execute_inputs(file_path):
                     if first_char != second_char:
                         logging.error("The lawn is not a square")
                         raise WrongFormatInputFileException
-                    my_lawn = Lawn(int(line.strip()[0]), int(line.strip()[1]), [])
+                    my_lawn = Lawn(int(first_char), int(second_char), [])
                     logging.debug("Creating the lawn: %s", my_lawn)
                 # If not first line, let's see if we're dealing with a mower or some instructions
                 else:
